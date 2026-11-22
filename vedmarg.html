@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Home | VedMarg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#FF9933;--saffron-d:#B85E00;--gold:#D4AF37;--maroon:#800020;--blue:#1A365D;--bg:#FFF8E7;--card:#FFFFFF;--text:#333333;--muted:#6b6256;--line:#ecdcae;--hero-a:#800020;--hero-b:#1A365D;--foot:#1A365D;--foot-t:#FFF8E7;--head:#800020;--on-sat:#2a1a00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17120d;--card:#231c14;--text:#f1e8d6;--muted:#b9ad95;--line:#4a3d22;--head:#f0c96a;--foot:#0e0b07;--foot-t:#f1e8d6;--saffron-d:#ffb35c}}
+:root[data-theme="dark"]{--bg:#17120d;--card:#231c14;--text:#f1e8d6;--muted:#b9ad95;--line:#4a3d22;--head:#f0c96a;--foot:#0e0b07;--foot-t:#f1e8d6;--saffron-d:#ffb35c}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;color:var(--head);line-height:1.15;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;height:68px}
+.logo{font:700 26px 'Cormorant Garamond',serif;color:var(--head);letter-spacing:.04em}
+.logo span{color:var(--saffron)}
+nav{display:flex;gap:20px;margin-left:auto;font-size:15px;font-weight:500}
+nav a:hover{color:var(--saffron-d)}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 15px Inter,sans-serif;padding:12px 22px;border-radius:12px;background:var(--saffron);color:var(--on-sat);min-height:44px}
+.btn:hover{filter:brightness(1.07)}
+.btn.o{background:transparent;border:2px solid var(--blue);color:var(--blue)}
+:root[data-theme="dark"] .btn.o{border-color:var(--gold);color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.o{border-color:var(--gold);color:var(--gold)}}
+#menu{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 12px;color:var(--text);font-size:18px}
+@media(max-width:860px){#menu{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);padding:16px 20px;border-bottom:1px solid var(--line);margin:0}nav.open{display:flex}}
+.hero{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));color:#fff;position:relative;overflow:hidden;padding:84px 0 72px;text-align:center}
+.hero svg{position:absolute;right:-120px;top:-100px;width:560px;opacity:.12}
+.hero h1{color:#fff;font-size:clamp(36px,6vw,64px);position:relative}
+.hero p{max-width:620px;margin:16px auto 28px;font-size:18px;opacity:.92;position:relative}
+.search{display:flex;gap:8px;max-width:640px;margin:0 auto;position:relative}
+.search input{flex:1;min-width:0;padding:14px 16px;border-radius:12px;border:2px solid var(--gold);font:16px Inter,sans-serif;background:#fff;color:#333}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px;position:relative}
+.chip{border:1px solid var(--gold);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:8px 16px;font:500 14px Inter,sans-serif;cursor:pointer}
+.chip:hover,.chip.on{background:var(--gold);color:#2a1a00}
+section{padding:68px 0}
+.sec-h{text-align:center;margin-bottom:34px}
+.sec-h h2{font-size:clamp(30px,4vw,44px)}
+.sec-h p{color:var(--muted);max-width:640px;margin:10px auto 0}
+.div{width:90px;height:2px;background:var(--gold);margin:14px auto 0;position:relative}
+.div::after{content:"✿";position:absolute;left:50%;top:-11px;transform:translateX(-50%);background:var(--bg);padding:0 8px;color:var(--gold);font-size:16px;line-height:1}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(128,0,32,.07);display:flex;flex-direction:column;transition:transform .25s}
+.card:hover{transform:translateY(-4px)}
+.card .b{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:24px}
+.meta{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.price{font-weight:600;color:var(--saffron-d)}
+.ph{aspect-ratio:16/10;display:grid;place-items:center;font-size:44px;background:linear-gradient(135deg,#f3e7b3,#ffcf99)}
+:root[data-theme="dark"] .ph{background:linear-gradient(135deg,#3a2c12,#5a3410)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ph{background:linear-gradient(135deg,#3a2c12,#5a3410)}}
+.tag{position:absolute;top:10px;left:10px;background:var(--maroon);color:#fff;font-size:12px;padding:2px 10px;border-radius:999px}
+.pw{position:relative}
+.date{background:var(--saffron);color:var(--on-sat);font-weight:600;font-size:13px;padding:2px 10px;border-radius:999px;align-self:flex-start}
+.alt{background:var(--card);border-block:1px solid var(--line)}
+.sacred .ph{aspect-ratio:3/4;font-size:56px}
+.sacred .card{text-align:center}
+.res{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.res .card{padding:26px;text-align:center}
+.res .ic{font-size:34px}
+.quote{background:var(--maroon);color:#fff;text-align:center;padding:64px 0}
+.quote p{font:600 clamp(22px,3vw,32px)/1.35 'Cormorant Garamond',serif;max-width:800px;margin:0 auto 14px}
+.trust{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.trust .card{padding:24px}
+.trust .ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#2a1a00;font-size:24px}
+.post .b{gap:10px}.post small{color:var(--muted)}
+form.nl{max-width:520px;margin:0 auto;display:grid;gap:12px;background:var(--card);border:2px solid var(--gold);border-radius:12px;padding:26px}
+form.nl input[type=email]{padding:13px;border:1px solid var(--line);border-radius:10px;font:16px Inter,sans-serif;background:var(--bg);color:var(--text)}
+form.nl label{font-size:14px;color:var(--muted)}
+#ok{display:none;text-align:center;color:var(--head);font-weight:600}
+footer{background:var(--foot);color:var(--foot-t);padding:54px 0 28px}
+.fg{display:grid;gap:28px;grid-template-columns:2fr 1fr 1fr 1.4fr}
+@media(max-width:760px){.fg{grid-template-columns:1fr 1fr}}
+footer h3{color:var(--gold);font-size:20px;margin-bottom:10px}
+footer a,footer li{display:block;opacity:.9;font-size:15px;padding:2px 0}
+footer ul{list-style:none;margin:0;padding:0}
+.soc{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.soc a{border:1px solid var(--gold);border-radius:999px;padding:3px 12px;font-size:13px}
+.copy{border-top:1px solid rgba(212,175,55,.4);margin-top:30px;padding-top:18px;font-size:13px;opacity:.85;text-align:center}
+#theme{background:none;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer;color:var(--text)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#top">VED<span>MARG</span></a>
+<button id="menu" aria-label="Menu">☰</button>
+<nav id="nav">
+<a href="#top">Home</a><a href="#guides">Guides Directory</a><a href="#about">About Us</a><a href="#for-guides">For Guides</a><a href="#events">Events</a><a href="#book">Book Online</a><a href="#blog">Blog</a>
+</nav>
+<button id="theme" aria-label="Toggle theme">◐</button>
+</div></header>
+
+<div id="top" class="hero">
+<svg viewBox="0 0 200 200" fill="none" stroke="#D4AF37" stroke-width=".6"><g id="m"><circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="40"/><ellipse cx="100" cy="55" rx="14" ry="40"/><ellipse cx="100" cy="55" rx="14" ry="40" transform="rotate(45 100 100)"/><ellipse cx="100" cy="55" rx="14" ry="40" transform="rotate(90 100 100)"/><ellipse cx="100" cy="55" rx="14" ry="40" transform="rotate(135 100 100)"/><ellipse cx="100" cy="55" rx="14" ry="40" transform="rotate(180 100 100)"/><ellipse cx="100" cy="55" rx="14" ry="40" transform="rotate(225 100 100)"/><ellipse cx="100" cy="55" rx="14" ry="40" transform="rotate(270 100 100)"/><ellipse cx="100" cy="55" rx="14" ry="40" transform="rotate(315 100 100)"/></g></svg>
+<div class="wrap">
+<h1>Your Path to Wisdom and Peace</h1>
+<p>Find trusted spiritual guidance, sacred events, and timeless teachings across every Dharmic tradition.</p>
+<div class="search"><input id="q" type="search" placeholder="Search guides, sessions, topics…" aria-label="Search"><button class="btn" id="go">Search</button></div>
+<div class="chips" id="chips"></div>
+</div></div>
+
+<section id="guides"><div class="wrap">
+<div class="sec-h"><h2>Featured Spiritual Guides</h2><div class="div"></div><p>Discover a curated selection of verified spiritual teachers, katha vachaks, and meditation masters from across the Dharmic traditions.</p></div>
+<div class="grid" id="svc"></div>
+<p id="none" style="display:none;text-align:center;color:var(--muted)">No sessions match your search.</p>
+</div></section>
+
+<section class="alt sacred" id="shop"><div class="wrap">
+<div class="sec-h"><h2>Sacred Goods &amp; Merchandise</h2><div class="div"></div><p>Explore spiritual books, meditation essentials, sacred gifts, and meaningful merchandise from VedMarg.</p></div>
+<div class="grid" id="prod" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))"></div>
+</div></section>
+
+<section id="events"><div class="wrap">
+<div class="sec-h"><h2>Upcoming Events</h2><div class="div"></div><p>Discover our curated collection of satsangs, workshops, and retreats across the globe. Join us for authentic Dharmic wisdom and spiritual growth.</p></div>
+<div class="grid" id="ev"></div>
+<p style="text-align:center;margin-top:30px"><a class="btn o" href="#events">View All Events</a></p>
+</div></section>
+
+<section class="alt sacred"><div class="wrap">
+<div class="sec-h"><h2>Featured Ashrams &amp; Temples</h2><div class="div"></div><p>Discover the sacred spaces where wisdom is shared and traditions are preserved across the globe.</p></div>
+<div class="grid" id="ash"></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="sec-h"><h2>Sacred Resources</h2><div class="div"></div><p>A curated collection of Dharmic wisdom, from ancient katha vachaks to modern spiritual practices.</p></div>
+<div class="res">
+<div class="card"><div class="ic">▶️</div><h3>Videos</h3><p>Explore sacred katha vachaks, meditation sessions, and spiritual teachings from verified masters.</p></div>
+<div class="card"><div class="ic">🎧</div><h3>Audio</h3><p>Listen to curated audio meditations, kirtans, and dharmic chants for your daily spiritual practice.</p></div>
+<div class="card"><div class="ic">📖</div><h3>Books</h3><p>Discover timeless scriptures, modern interpretations, and essential Dharmic literature for seekers.</p></div>
+</div></div></section>
+
+<section class="alt" id="blog"><div class="wrap">
+<div class="sec-h"><h2>From the Blog</h2><div class="div"></div></div>
+<div class="grid post" id="posts"></div>
+</div></section>
+
+<div class="quote"><div class="wrap">
+<p>“The spiritual guidance I received through VedMarg was transformative. A truly unhurried and sacred experience that connected me with authentic wisdom.”</p>
+<strong>Arjun Mehta, Mumbai</strong>
+</div></div>
+
+<section id="about"><div class="wrap">
+<div class="sec-h"><h2>Guided by Lineage</h2><div class="div"></div></div>
+<div class="trust">
+<div class="card"><div class="ic">🪪</div><h3>Identity Verified</h3><p>Every guide undergoes a rigorous identity check, ensuring their name and credentials are matched with official government documents.</p></div>
+<div class="card"><div class="ic">🕉️</div><h3>Lineage Reviewed</h3><p>We verify the spiritual lineage and guru-parampara of each teacher, confirming their authentic connection to the tradition.</p></div>
+<div class="card"><div class="ic">★</div><h3>Real Reviews</h3><p>Only verified seekers who have completed a session can leave reviews, providing a transparent and trustworthy community.</p></div>
+<div class="card"><div class="ic">🔒</div><h3>Secure Inquiries</h3><p>Our platform provides a secure, encrypted channel for seekers to contact guides, protecting sensitive personal and spiritual data.</p></div>
+</div></div></section>
+
+<section class="alt" id="book"><div class="wrap">
+<div class="sec-h" id="for-guides"><h2>Weekly Wisdom &amp; Events</h2><div class="div"></div><p>Subscribe to receive curated Dharmic insights, verified guide profiles, and upcoming spiritual events directly in your inbox.</p></div>
+<form class="nl" id="nl">
+<label for="em">Email Address*</label>
+<input id="em" type="email" required>
+<label><input type="checkbox" required> I agree to receive weekly updates*</label>
+<button class="btn" type="submit">Subscribe</button>
+<div id="ok">Thank you. You’re on the list.</div>
+</form>
+</div></section>
+
+<footer><div class="wrap">
+<div class="fg">
+<div><div class="logo" style="color:var(--gold)">VEDMARG</div><p style="opacity:.85;max-width:280px">The Path to Vedic Wisdom and Practices.</p>
+<div class="soc"><a href="#top">Facebook</a><a href="#top">Instagram</a><a href="#top">YouTube</a><a href="#top">X</a><a href="#top">LinkedIn</a><a href="#top">TikTok</a></div></div>
+<div><h3>Traditions</h3><ul><li>Hinduism</li><li>Sikhism</li><li>Jainism</li><li>Buddhism</li></ul></div>
+<div><h3>Categories</h3><ul><li>Katha Vachaks</li><li>Pravachankars</li><li>Yoga Gurus</li><li>Meditation Teachers</li></ul></div>
+<div><h3>Contact</h3><a href="mailto:hello@vedmarg.org">hello@vedmarg.org</a><a href="tel:+911234567890">+91 123 456 7890</a></div>
+</div>
+<div class="copy">© 2026 VedMarg.org. All rights reserved.<br>VedMarg lists independent guides and does not guarantee outcomes or endorse any individual teaching.</div>
+</div></footer>
+
+<script>
+var S=[["🔮","Vedic Astrology & Gemstone Consultation","Unlock your cosmic blueprint with authentic Jyotish wisdom.","1 hr",85],["🧭","One on one Life Coaching Session","Empowering you to bridge the gap between where you are and where you want to be.","1 hr",125],["📜","Katha Vachaks & Pravachakas: Dharmic Discourses","Connect with authentic spiritual wisdom through sacred storytelling.","1 hr 30 min",60],["🧘","Yoga Workshop","Master Inner Stillness.","Ended",100],["🪷","Meditation Session","Experience Enlightenment and Peace.","Check days",20],["📖","Scripture Reading","Connect with Divine Teachings.","1 hr 30 min",50]];
+var P=[["Nourishing Hand Cream",20,0,"New Arrival"],["Modern Lounge Chair",180,200,""],["Soft Cashmere Sweater",80,0,""],["Minimal Phone Case",15,0,"Best Seller"],["Everyday Leather Tote",80,0,""],["Stackable Cup Set",18,20,"Sale"],["Geometric Table Lamp",120,0,""],["Bow Ballet Flats",60,0,""],["Sculpted Candle",12,0,"New Arrival"],["Wooden Blocks Set",24,30,"Sale"],["Compact Bluetooth Speaker",80,0,""],["Artisan Soap Set",40,0,""]];
+var E=[["Sacred Chants and Meditation Evening","Shraddha Auditorium, Sainik Farm, New Delhi","Join sacred chants led by renowned pravachankars, embracing peace and tranquility."],["Dharmic Philosophical Symposium","Nirvana Hall, Andheri East, Mumbai","Engage in deep discussions with spiritual leaders on Jain and Buddhist philosophies."],["Transformative Yoga and Meditation Workshop","Karma Yoga Ashram, Bengaluru, Karnataka","Participate in a transformative workshop by top yoga gurus, enhancing mental and physical well-being."]];
+var A=[["🏔️","Shri Rishikesh Ashram","Hinduism • Himalayas"],["🛕","Palitana Jain Temple","Jainism • Gujarat"],["☸️","Bodh Gaya Stupa","Buddhism • Bihar"]];
+var B=[["Navigating Spirituality: Find Your Perfect Guide Today","Many people are seeking deeper connections with their spiritual selves. Learn how to find the right mentor for your journey."],["Explore Spiritual Guidance Across Dharmic Traditions","Hinduism, Buddhism, Jainism and Sikhism each offer profound insights. Explore their core principles and practices."],["Your Guide to Booking Authentic Spiritual Teachers Online","Learn how to identify and book authentic teachers for meditation, yoga and personal development."]];
+var $=function(i){return document.getElementById(i)},inr=function(n){return "₹"+n};
+function svc(list){$("svc").innerHTML=list.map(function(s){return '<div class="card"><div class="ph">'+s[0]+'</div><div class="b"><h3>'+s[1]+'</h3><p>'+s[2]+'</p><div class="meta"><span>'+s[3]+'</span><span class="price">'+inr(s[4])+'</span></div><a class="btn o" href="#book">'+(s[3]=="Ended"?"View Course":"View Profile")+'</a></div></div>'}).join("");$("none").style.display=list.length?"none":"block"}
+svc(S);
+$("prod").innerHTML=P.map(function(p){return '<div class="card"><div class="pw"><div class="ph">🛍️</div>'+(p[3]?'<span class="tag">'+p[3]+'</span>':'')+'</div><div class="b"><strong>'+p[0]+'</strong><span class="price">'+(p[2]?'<s style="color:var(--muted);font-weight:400">'+inr(p[2])+'.00</s> ':'')+inr(p[1])+'.00</span></div></div>'}).join("");
+$("ev").innerHTML=E.map(function(e){return '<div class="card"><div class="ph">🪔</div><div class="b"><span class="date">Fri, 20 Nov · 1:42 pm – 3:42 pm</span><h3>'+e[0]+'</h3><small style="color:var(--muted)">'+e[1]+'</small><p>'+e[2]+'</p><a class="btn o" href="#events">Details</a></div></div>'}).join("");
+$("ash").innerHTML=A.map(function(a){return '<div class="card"><div class="ph">'+a[0]+'</div><div class="b"><h3>'+a[1]+'</h3><small style="color:var(--muted)">'+a[2]+'</small></div></div>'}).join("");
+$("posts").innerHTML=B.map(function(b){return '<div class="card"><div class="b"><small>Oct 20</small><h3>'+b[0]+'</h3><p>'+b[1]+'</p><a href="#blog" class="price">Read more →</a></div></div>'}).join("");
+var C=["Katha Vachak","Jyotishi / Gem stone","Yoga Guru","Spiritual Coach","Meditation Teacher","Life Coach","Motivational Speaker"];
+$("chips").innerHTML=C.map(function(c){return '<button class="chip">'+c+'</button>'}).join("");
+function find(t){t=t.toLowerCase().trim();var l=S.filter(function(s){return (s[1]+" "+s[2]).toLowerCase().indexOf(t)>-1});svc(l);document.getElementById("guides").scrollIntoView()}
+var K={"katha vachak":"katha","jyotishi / gem stone":"astrology","yoga guru":"yoga","spiritual coach":"coaching","meditation teacher":"meditation","life coach":"life coaching","motivational speaker":"empowering"};
+$("go").onclick=function(){find($("q").value)};$("q").onkeydown=function(e){if(e.key=="Enter")find(this.value)};
+$("chips").onclick=function(e){if(e.target.className.indexOf("chip")<0)return;var t=e.target.textContent.toLowerCase();$("q").value=e.target.textContent;find(K[t]||t)};
+$("menu").onclick=function(){$("nav").classList.toggle("open")};
+$("nav").onclick=function(){$("nav").classList.remove("open")};
+$("nl").onsubmit=function(e){e.preventDefault();$("ok").style.display="block"};
+var T=null;$("theme").onclick=function(){var d=matchMedia("(prefers-color-scheme: dark)").matches;T=T?(T=="dark"?"light":"dark"):(d?"light":"dark");document.documentElement.setAttribute("data-theme",T)};
+</script>
+</body>
+</html>
